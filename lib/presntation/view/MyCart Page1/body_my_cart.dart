@@ -51,7 +51,9 @@ class BodyMyCart extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const BottomPay(),
+            const BottomPay(
+              title: "complete payment",
+            ),
           ],
         ),
       ),
