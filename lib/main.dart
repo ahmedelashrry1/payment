@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payment/presntation/view/my_cart_view.dart';
+import 'package:payment/presntation/view/page1/my_cart_view.dart';
 
 void main() {
   runApp(const MyApp());
