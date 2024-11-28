@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:payment/presntation/view/page1/custoom_buttom.dart';
-import 'package:payment/presntation/view/page1/info_cary.dart';
-import 'package:payment/presntation/view/page1/total_price.dart';
+import 'package:payment/presntation/view/widgets/custoom_buttom.dart';
+import 'package:payment/presntation/view/MyCart%20Page1/info_cary.dart';
+import 'package:payment/presntation/view/MyCart%20Page1/total_price.dart';
 
 class BodyMyCart extends StatelessWidget {
   const BodyMyCart({super.key});
