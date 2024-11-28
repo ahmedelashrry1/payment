@@ -1,5 +1,8 @@
+
 import 'package:flutter/material.dart';
-import 'package:payment/style.dart';
+import 'package:payment/presntation/view/custoom_buttom.dart';
+import 'package:payment/presntation/view/info_cary.dart';
+import 'package:payment/presntation/view/total_price.dart';
 
 class BodyMyCart extends StatelessWidget {
   const BodyMyCart({super.key});
@@ -14,58 +17,44 @@ class BodyMyCart extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            Image.asset('assets/images/Group 6.jpg'),
+            Expanded(child: Image.asset('assets/images/Group 6.jpg')),
             const SizedBox(
               height: 15,
             ),
-              const SizedBox(
+            const SizedBox(
               height: 15,
             ),
             const OrderBody(
-              title: 'Order Subtotal', 
+              title: 'Order Subtotal',
               price: r'$42.97',
             ),
-              const SizedBox(
+            const SizedBox(
               height: 3,
             ),
             const OrderBody(
-              title: 'Discount', 
+              title: 'Discount',
               price: r'$0',
             ),
             const SizedBox(
               height: 3,
             ),
             const OrderBody(
-              title: 'Shipping', 
+              title: 'Shipping',
               price: r'$8',
             ),
+            const Divider(
+              color: Color(0xffc7c7c7),
+              thickness: 2,
+              height: 34,
+            ),
+            const TotalPrice(title: "Total", price: r"$50.97"),
+            const SizedBox(
+              height: 30,
+            ),
+            const BottomPay(),
           ],
         ),
       ),
-    );
-  }
-  }  
-class OrderBody extends StatelessWidget {
-  const OrderBody({super.key, required this.title, required this.price});
-  final String title;
-  final String price;
-
-  @override
-  Widget build(BuildContext context) {
-    return  Row(
-      children: [
-        Text(
-          title,
-          textAlign: TextAlign.center,
-          style: StyleS.style18,
-        ),
-        const Spacer(),
-        Text(
-          price,
-          textAlign: TextAlign.center,
-          style: StyleS.style18,
-        )
-      ],
     );
   }
 }
