@@ -16,7 +16,6 @@ class CustomPaymentItems extends StatelessWidget {
       duration: const Duration(milliseconds: 600),
       width: 110,
       height: 70,
-      // alignment: Alignment.center,
       decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             side: BorderSide(

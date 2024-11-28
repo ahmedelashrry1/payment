@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:payment/presntation/view/widgets/Custom_Payment_Items.dart';
 
-class ItemPaymentListView extends StatelessWidget {
+class ItemPaymentListView extends StatefulWidget {
   ItemPaymentListView({super.key});
 
+  @override
+  State<ItemPaymentListView> createState() => _ItemPaymentListViewState();
+}
+
+class _ItemPaymentListViewState extends State<ItemPaymentListView> {
   final List<String> paymentMethods = [
     "assets/images/payapple.png",
     "assets/images/paycard.png",
     "assets/images/paypall.jpg",
   ];
+
+  int isActive =0;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,9 +27,15 @@ class ItemPaymentListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: CustomPaymentItems(
-              IsActive: false,
-              ImagePath: paymentMethods[index],
+            child: GestureDetector(
+              onTap: () {
+                isActive = index;
+                setState(() {});
+              },
+              child: CustomPaymentItems(
+                IsActive: isActive == index,
+                ImagePath: paymentMethods[index],
+              ),
             ),
           );
         },
