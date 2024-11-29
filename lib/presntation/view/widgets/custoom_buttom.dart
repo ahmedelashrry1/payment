@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:payment/presntation/view/PayMent%20page%202/PaymentDitails.dart';
 import 'package:payment/style.dart';
 
 class BottomPay extends StatelessWidget {
-  const BottomPay({super.key, required this.title});
+  const BottomPay({super.key, required this.title, required this.onTap});
 
-final String title ;
+  final String title;
+  final VoidCallback onTap; // استلام الدالة للتنفيذ عند الضغط
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return const PaymentDitails();
-          }));
-          },
+      onPressed: onTap, // استخدام الدالة الممررة
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(350, 72),
         backgroundColor: Colors.green,
@@ -24,7 +21,7 @@ final String title ;
       child: Text(
         title,
         style: StyleS.style24,
-      )
+      ),
     );
   }
 }

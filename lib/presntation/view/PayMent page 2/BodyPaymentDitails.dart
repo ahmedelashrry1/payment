@@ -3,29 +3,45 @@ import 'package:payment/presntation/view/widgets/Custom_Item_Payment_ListView.da
 import 'package:payment/presntation/view/widgets/custom_cridatcard.dart';
 import 'package:payment/presntation/view/widgets/custoom_buttom.dart';
 
-class Bodypaymentditails extends StatelessWidget {
-  const Bodypaymentditails({super.key});
+class BodyPaymentDitails extends StatefulWidget {
+  const BodyPaymentDitails({super.key});
+
+  @override
+  State<BodyPaymentDitails> createState() => _BodyPaymentDitailsState();
+}
+
+class _BodyPaymentDitailsState extends State<BodyPaymentDitails> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
         child: Column(
-          
           children: [
             ItemPaymentListView(),
-            CustomCridatcard(),
-          const
-            SizedBox(
+            CustomCridatcard(
+              autovalidateMode: autovalidateMode,
+              formKey: formKey,
+            ),
+            const SizedBox(
               height: 70,
             ),
-          const BottomPay(
-                title: "Pay Now",
-              ),
+            BottomPay(
+              onTap: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+              title: "Pay Now",
+            ),
           ],
         ),
       ),
     );
   }
 }
-

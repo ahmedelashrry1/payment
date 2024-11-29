@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 
+// ignore: must_be_immutable
 class CustomCridatcard extends StatefulWidget {
-  CustomCridatcard({super.key});
+  CustomCridatcard({
+    super.key,
+    required this.formKey, required this.autovalidateMode,
+  });
+  final GlobalKey<FormState> formKey;
+  final AutovalidateMode autovalidateMode;
+
   String cardNumber = '';
   String expiryDate = '';
   String cardHolderName = '';
@@ -22,6 +29,7 @@ class _CustomCridatcardState extends State<CustomCridatcard> {
     return Column(
       children: [
         CreditCardWidget(
+          
           cardNumber: widget.cardNumber,
           expiryDate: widget.expiryDate,
           cardHolderName: widget.cardHolderName,
@@ -30,6 +38,7 @@ class _CustomCridatcardState extends State<CustomCridatcard> {
           onCreditCardWidgetChange: (CreditCardBrand brand) {},
         ),
         CreditCardForm(
+          autovalidateMode: widget.autovalidateMode,
           cardNumber: widget.cardNumber,
           expiryDate: widget.expiryDate,
           cardHolderName: widget.cardHolderName,
@@ -43,7 +52,7 @@ class _CustomCridatcardState extends State<CustomCridatcard> {
               widget.isCvvFocused = creditCardModel.isCvvFocused;
             });
           },
-          formKey: GlobalKey<FormState>(),
+          formKey: widget.formKey,
         )
       ],
     );

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:payment/presntation/view/PayMent%20page%202/PaymentDitails.dart';
 import 'package:payment/presntation/view/widgets/custoom_buttom.dart';
 import 'package:payment/presntation/view/MyCart%20Page1/info_cary.dart';
 import 'package:payment/presntation/view/MyCart%20Page1/total_price.dart';
@@ -51,13 +52,22 @@ class BodyMyCart extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const BottomPay(
+            BottomPay(
               title: "complete payment",
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const PaymentDitails();
+                    },
+                  ),
+                );
+              },
             ),
           ],
         ),
       ),
     );
   }
-}
 
+}
