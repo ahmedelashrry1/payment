@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment/presntation/view/ThankYou%20Page3/Thank_you_View.dart';
 import 'package:payment/presntation/view/widgets/Custom_Item_Payment_ListView.dart';
 import 'package:payment/presntation/view/widgets/custom_cridatcard.dart';
 import 'package:payment/presntation/view/widgets/custoom_buttom.dart';
@@ -35,6 +36,11 @@ class _BodyPaymentDitailsState extends State<BodyPaymentDitails> {
                 } else {
                   autovalidateMode = AutovalidateMode.always;
                   setState(() {});
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ThankyouView(),
+                    ),
+                  );
                 }
               },
               title: "Pay Now",

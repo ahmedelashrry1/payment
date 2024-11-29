@@ -69,5 +69,4 @@ class BodyMyCart extends StatelessWidget {
       ),
     );
   }
-
 }
