@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:payment/style.dart';
 
 class BottomPay extends StatelessWidget {
-  const BottomPay({super.key, required this.title, required this.onTap});
+  const BottomPay(
+      {super.key, required this.title, this.onTap, this.color});
 
   final String title;
-  final VoidCallback onTap; // استلام الدالة للتنفيذ عند الضغط
+  final VoidCallback? onTap;
+  final String? color; // استلام الدالة للتنفيذ عند الضغط
 
   @override
   Widget build(BuildContext context) {

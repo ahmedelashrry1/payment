@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:payment/presntation/view/PayMent%20page%202/PaymentDitails.dart';
+import 'package:payment/presntation/view/widgets/Custom_Item_Payment_ListView.dart';
 import 'package:payment/presntation/view/widgets/custoom_buttom.dart';
 import 'package:payment/presntation/view/MyCart%20Page1/info_cary.dart';
 import 'package:payment/presntation/view/MyCart%20Page1/total_price.dart';
@@ -55,17 +55,54 @@ class BodyMyCart extends StatelessWidget {
             BottomPay(
               title: "complete payment",
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const PaymentDitails();
-                    },
+                showBottomSheet(
+                  backgroundColor: Colors.white,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
                   ),
+                  context: context,
+                  builder: (context) {
+                    return const PaymentModelShowDetails();
+                  },
                 );
               },
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class PaymentModelShowDetails extends StatelessWidget {
+  const PaymentModelShowDetails({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ItemPaymentListView(),
+          const SizedBox(
+            height: 20,
+          ),
+          BottomPay(
+            title: "continue",
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const PaymentDitails();
+                  },
+                ),
+              );
+            },
+          )
+        ],
       ),
     );
   }
