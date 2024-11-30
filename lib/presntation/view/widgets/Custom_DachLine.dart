@@ -14,7 +14,7 @@ class customDachLine extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 1),
             child: Container(
-              color: Colors.green,
+              color: const Color(0xffB8B8B8),
               // width: 10,
               height: 2,
             ),
